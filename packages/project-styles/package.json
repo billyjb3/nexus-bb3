@@ -1,0 +1,15 @@
+{
+  "name": "@nexus-bb3/project-styles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.scss"
+  },
+  "dependencies": {
+    "@billyjb3/global-styles": "^1.1.0",
+    "sass": "^1.98.0"
+  }
+}

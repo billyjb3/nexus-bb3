@@ -1,0 +1,11 @@
+$colorBgPrimary: #151618 !default;
+$colorBgSecondary: #2b2b2b !default;
+
+$colorTextPrimary: #fff !default;
+
+.color-bg-primary {
+  background-color: $colorBgPrimary;
+}
+.color-bg-secondary {
+  background-color: $colorBgSecondary;
+}

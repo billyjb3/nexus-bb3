@@ -1,0 +1,8 @@
+@forward '@billyjb3/global-styles';
+@forward 'colors';
+
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
