@@ -15,13 +15,15 @@
     "electron-build": "npm run build --prefix ./apps/electron",
     "electron-package": "npm run package --prefix ./apps/electron",
     "web-start": "npm run dev --prefix ./apps/web",
-    "web-build": "npm run build --prefix ./apps/web"
+    "web-build": "npm run build --prefix ./apps/web",
+    "web-emulator": "npm run start-emulator --prefix ./apps/web"
   },
   "private": true,
   "overrides": {
-    "@billyjb3/global-react": "^1.4.0",
+    "@billyjb3/global-react": "^1.5.0",
     "@billyjb3/global-styles": "^1.1.0",
     "@noble/hashes": "^2.4.0",
+    "firebase": "^13.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sass": "^1.98.0",
@@ -32,5 +34,8 @@
     "electron": "^44.9.0",
     "electron-builder": "^26.15.3",
     "vite": "^6.4.2"
+  },
+  "dependencies": {
+
   }
 }

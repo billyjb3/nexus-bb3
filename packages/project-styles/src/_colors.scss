@@ -1,11 +1,162 @@
-$colorBgPrimary: #151618 !default;
-$colorBgSecondary: #2b2b2b !default;
 
-$colorTextPrimary: #fff !default;
+//$colorBgPrimary: #121418;
+$colorBgPrimary: #131520;
+$colorBgSection: #161923;
+//$colorBgSection: #202536;
+$colorBgSurface: #202536;
+$colorBgSurfaceSecondary: #303745;
+$colorBgSuccess: #a0f0a0;
+$colorBgError: #f0b0b0;
+
+//$colorBgButtonPrimary: #202530;
+$colorBgButtonPrimary: #163462;
+$colorBgButtonPrimaryFocus: #222835;
+
+$colorTextPrimary: #9090a0;
+$colorTextAccent: #b0c0e0;
+$colorTextFocus: #b0b0b0;
+$colorTextError: #f08090;
+$colorTextSuccess: #80f090;
+$colorTextLink: #9090ff;
+
+$colorBorderPrimary: #9090a0;
+//$colorBorderPrimary: white;
+$colorBorderFocus: #b0c0e0;
+$colorBorderSecondary: #909090;
+//$colorBorderFocus: #b0b0b0;
+$colorBorderError: #aa0000;
+
+$colorShadowPrimary: #c0c0c0;
+
+
+@mixin colorTextPrimary {
+  color: $colorTextPrimary;
+  stroke: $colorTextPrimary;
+  fill: $colorTextPrimary;
+}
+@mixin colorTextAccent {
+  color: $colorTextAccent;
+  stroke: $colorTextAccent;
+  fill: $colorTextAccent;
+}
+@mixin colorTextFocus {
+  color: $colorTextFocus;
+  stroke: $colorTextFocus;
+  fill: $colorTextFocus;
+}
+@mixin colorTextError {
+  color: $colorTextError;
+  stroke: $colorTextError;
+  fill: $colorTextError;
+}
+@mixin colorTextSuccess {
+  color: $colorTextSuccess;
+  stroke: $colorTextSuccess;
+  fill: $colorTextSuccess;
+}
+@mixin colorTextLink {
+  color: $colorTextLink;
+}
+@mixin colorTextWhite {
+  color: white;
+  stroke: white;
+  fill: white;
+}
+@mixin colorTextBlack {
+  color: black;
+  stroke: black;
+  fill: black;
+}
+
+@mixin colorBorderPrimary {
+  border-color: $colorBorderPrimary;
+}
+@mixin colorBorderFocus {
+  border-color: $colorBorderFocus;
+}
+
 
 .color-bg-primary {
   background-color: $colorBgPrimary;
 }
-.color-bg-secondary {
-  background-color: $colorBgSecondary;
+.color-bg-surface {
+  background-color: $colorBgSurface;
 }
+.color-bg-section {
+  background-color: $colorBgSection;
+}
+.color-bg-surface-secondary {
+  background-color: $colorBgSurfaceSecondary;
+}
+.color-bg-button-primary {
+  background-color: $colorBgButtonPrimary;
+}
+.color-bg-success {
+  background-color: $colorBgSuccess;
+}
+.color-bg-error {
+  background-color: $colorBgError;
+}
+.color-bg-inherit {
+  background-color: inherit;
+}
+.color-bg-white {
+  background-color: white;
+}
+
+.color-bg-text {
+  background-color: $colorTextPrimary;
+}
+.color-text-primary {
+  @include colorTextPrimary;
+}
+.color-text-accent {
+  @include colorTextAccent;
+}
+.color-text-focus {
+  @include colorTextFocus;
+}
+.color-text-error {
+  @include colorTextError;
+}
+.color-text-success {
+  @include colorTextSuccess;
+}
+.color-text-white {
+  @include colorTextWhite;
+}
+.color-text-black {
+  @include colorTextBlack;
+}
+.color-text-link {
+  @include colorTextLink;
+}
+a {
+  @include colorTextLink;
+}
+
+.color-border-primary {
+  border-color: $colorBorderPrimary;
+}
+.color-border-focus {
+  border-color: $colorBorderFocus;
+}
+.color-border-error {
+  border-color: $colorBorderError;
+}
+
+
+
+.background-opacity-gradient {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), $colorBgPrimary, $colorBgPrimary);
+}
+
+.color-overlay-bg {
+  background-color: black;
+  opacity: .7;
+}
+
+.box-shadow {
+  box-shadow: 3px 3px 6px $colorShadowPrimary;
+}
+

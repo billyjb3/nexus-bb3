@@ -1,0 +1,17 @@
+{
+  "name": "@nexus-bb3/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "dependencies": {
+    "@noble/hashes": "^2.4.0",
+    "firebase": "^13.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}

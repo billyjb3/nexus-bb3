@@ -1,5 +1,7 @@
-@forward '@billyjb3/global-styles';
+@forward 'globals';
 @forward 'colors';
+@forward 'text';
+@forward 'components';
 
 body {
   font-family: 'Barlow', sans-serif;

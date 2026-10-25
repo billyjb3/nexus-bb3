@@ -1,0 +1,52 @@
+
+.heading-1 {
+  font-family: 'barlow condensed', sans-serif;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: clamp(2.6rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: .03rem;
+}
+.heading-2 {
+  font-family: 'barlow condensed', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: .03rem;
+}
+.heading-3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.heading-4 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.heading-5 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.barlow {
+  font-family: 'barlow', sans-serif;
+}
+.condensed {
+  font-family: 'barlow condensed', sans-serif;
+}
+.sans-serif {
+  font-family: sans-serif;
+}
+.body {
+  font-size: 1.1rem;
+}
+.body-small {
+  font-size: 1rem;
+}
+.body-bold {
+  font-weight: bold;
+}
+.sub-text {
+  font-size: .8rem;
+}
+.body-spaced {
+  letter-spacing: .03rem;
+}
+

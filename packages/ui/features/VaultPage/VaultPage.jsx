@@ -2,7 +2,9 @@ import React from 'react';
 
 const VaultPage = () => {
   return (
-    <div>VAULT</div>
+    <div className="height-page color-bg-primary color-text-primary body">
+      VAULT
+    </div>
   );
 };
 
