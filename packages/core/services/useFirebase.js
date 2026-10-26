@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -27,7 +27,7 @@ export const FirebaseContext = createContext({
 });
 export const useFirebaseContext = () => useContext(FirebaseContext);
 
-export function useFirebase() {
+export function useFirebase(app) {
   const [firebaseApp, setFirebaseApp] = useState(null);
   const [auth, setAuth] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,10 +36,11 @@ export function useFirebase() {
   useEffect(() => {
     const firebase = initializeApp(firebaseConfig);
     const auth = getAuth(firebase);
+
     connectAuthEmulator(auth, 'http://127.0.0.1:9099'); // TODO: use env variable to switch between local and prod
 
     onAuthStateChanged(auth, (user) => {
-      // pull any user data you need from here and save in context state, but not the whole user object
+      // TODO: pull any user data you need from here and save in context state, but not the whole user object
       if (user) {
         console.log('auth state changed, is auth: true');
         setIsAuthenticated(true);
@@ -50,7 +51,9 @@ export function useFirebase() {
       setIsLoading(false);
     });
 
-    setFirebaseApp(firebase);
+    setPersistence(auth, app === 'electron' ? browserLocalPersistence : browserSessionPersistence);
+
+    setFirebaseApp(firebase); // TODO: make sure its ok to store these values in state
     setAuth(auth);
   }, []);
 

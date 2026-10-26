@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, AuthenticatedRoutes, PageRoute } from '@billyjb3/global-react';
-import { useFirebase, FirebaseContext } from '@nexus-bb3/core';
+import { useFirebase, FirebaseContext, useActivityTimeout } from '@nexus-bb3/core';
 import {
   LoginPage,
   NexusPage,
@@ -11,8 +11,10 @@ import {
 } from '@nexus-bb3/ui'
 
 const RootContainer = () => {
-  const firebase = useFirebase();
-  const { isAuthenticated, isLoading } = firebase;
+  const firebase = useFirebase('web');
+  const { isAuthenticated, isLoading, logout } = firebase;
+  useActivityTimeout(5*60*1000, logout, isAuthenticated);
+
   return (
     <div>
       <FirebaseContext.Provider value={firebase}>
