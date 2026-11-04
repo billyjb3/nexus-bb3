@@ -1,0 +1,22 @@
+@use '@nexus-bb3/project-styles' as project;
+
+.vaultTable {
+  max-height: 80vh;
+  overflow-y: scroll;
+  border-collapse: collapse;
+  //justify-self: start;
+}
+
+.vaultTable input {
+  background-color: inherit;
+  border: none;
+  color: project.$colorTextPrimary;
+  text-align: center;
+}
+
+.vaultTable tbody tr:hover {
+  background-color: project.$colorBgSection;
+}
+.vaultTable tbody td:hover {
+  //border: solid 1px project.$colorBorderPrimary;
+}

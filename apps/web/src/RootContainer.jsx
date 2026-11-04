@@ -1,23 +1,24 @@
 import React from 'react';
 import { Router, AuthenticatedRoutes, PageRoute } from '@billyjb3/global-react';
-import { useFirebase, FirebaseContext, useActivityTimeout } from '@nexus-bb3/core';
+import { useAuth, AuthContext, useActivityTimeout } from '@nexus-bb3/core';
 import {
   LoginPage,
   NexusPage,
-  VaultPage,
   LoadingPage,
   NavBar,
   FileManagerPage,
+  VaultApp,
 } from '@nexus-bb3/ui'
 
 const RootContainer = () => {
-  const firebase = useFirebase('web');
-  const { isAuthenticated, isLoading, logout } = firebase;
-  useActivityTimeout(5*60*1000, logout, isAuthenticated);
+  const isDev = import.meta.env.DEV;
+  const authState = useAuth();
+  const { isAuthLoading, isAuthenticated, logout } = authState;
+  useActivityTimeout(5*60*1000, logout, !isDev && isAuthenticated);
 
   return (
-    <div>
-      <FirebaseContext.Provider value={firebase}>
+    <div className="height-page flex flex-column">
+      <AuthContext.Provider value={authState}>
         <Router
           indexRedirect="/nexus"
           unauthenticatedRedirect="/login"
@@ -26,32 +27,28 @@ const RootContainer = () => {
           <PageRoute
             path="/login"
             Component={LoginPage}
-            isAuthenticatedRoute={true}
           />
           <AuthenticatedRoutes
             isAuthenticated={isAuthenticated}
-            isLoading={isLoading}
+            isLoading={isAuthLoading}
             unauthenticatedRedirect="/login"
           >
-            {isAuthenticated && <NavBar /> }
+            <NavBar />
             <PageRoute
               path="/nexus"
               Component={NexusPage}
-              isAuthenticatedRoute={true}
             />
             <PageRoute
               path="/vault"
-              Component={VaultPage}
-              isAuthenticatedRoute={true}
+              Component={VaultApp}
             />
             <PageRoute
               path="/file-manager"
               Component={FileManagerPage}
-              isAuthenticatedRoute={true}
             />
           </AuthenticatedRoutes>
         </Router>
-      </FirebaseContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 };

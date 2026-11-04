@@ -6,7 +6,7 @@ import {
   IconLoadingCircles,
   useRouter,
 } from '@billyjb3/global-react';
-import { useFirebaseContext } from '@nexus-bb3/core';
+import { useAuthContext } from '@nexus-bb3/core';
 import { ButtonText } from '../../components';
 import './styles.scss';
 
@@ -14,7 +14,7 @@ const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const { createAccount, login, isAuthenticated } = useFirebaseContext();
+  const { createAccount, login, isAuthenticated } = useAuthContext();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const LoginPage = () => {
           // push('/nexus');
         })
         .catch(({ errorCode, errorMessage }) => {
+          console.log(errorMessage);
           setIsError(true);
         })
         .finally(() => setIsLoading(false));

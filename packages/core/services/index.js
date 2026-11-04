@@ -1,1 +1,2 @@
-export * from './useFirebase.js';
+export * from './useAuth.js';
+export * from './useVaultDatabase.js';
